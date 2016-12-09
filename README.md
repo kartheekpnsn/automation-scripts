@@ -3,7 +3,7 @@
 Scripts to help with little automation in our life.
 
 # # Directory Structure
-
+```
 .
 +-- [`install-openCV.sh`](https://github.com/automation-scripts/blob/master/install-openCV.sh) #To install OpenCV in Ubuntu systems.
 +-- [`useful Snippets.txt`](https://github.com/automation-scripts/blob/master/useful Snippets.txt): some snippets regularly used for linux, python, R.
@@ -35,3 +35,4 @@ Scripts to help with little automation in our life.
 |   +-- [`zipFiles.py`](https://github.com/kartheekpnsn/automation-scripts/blob/master/Python/zipFiles.py) - This script is usually used when we have to mail a set of large files (mail allows only max 25MB) **Example** - If a folder has 100 files of size 250MB, the script produces 10 zip files each of 25MB.
 |   +-- [`zipUnzip.py`](https://github.com/kartheekpnsn/automation-scripts/blob/master/Python/zipUnzip.py) - This script needs an input path as command line argument - which unzips all available zips or rars or zips all the required file types.
 +-- README.md
+```
