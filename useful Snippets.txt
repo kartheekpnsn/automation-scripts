@@ -1,0 +1,54 @@
+# # # To test internet connection in Linux
+ping www.google.com
+
+# # # To set timezone in Linux
+ls /usr/share/zoneinfo/
+# -- select time zone
+ls /usr/share/zoneinfo/Asia/ # say Asia
+vi /etc/timezone # copy-paste-the-timezone-required-here (removing the old)
+export TZ=Asia/Calcutta # Also do this (Assuming it is Calcutta)
+
+# # # To check if apache-tomcat running or not in Linux
+ps -ef | grep tomcat # If it returns paths - then running else not
+
+# # # Install LAMP stack on Linux
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu
+
+# # # Install PHPMyAdmin for PHP on Linux
+https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-12-04
+
+# # # Install R.3.2.1 in Ubuntu
+codename=$(lsb_release -c -s)
+echo "deb http://ftp.iitm.ac.in/cran/bin/linux/ubuntu $codename/" | sudo tee -a /etc/apt/sources.list > /dev/null
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+sudo add-apt-repository ppa:marutter/rdev
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install r-base r-base-dev
+
+# # # Install R in RHEL > 6
+sudo yum install wget
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo rpm -ivh epel-release-latest-7.noarch.rpm
+sudo yum update
+sudo yum clean all
+cd /etc/yum.repos.d/
+sudo cp redhat-rhui.repo redhat-rhui_Nov11.repo
+sudo vi redhat-rhui.repo # search for optional and change enabled to 1 (3 existences will be replaced)
+sudo yum install R
+
+# # # To install a package in R (if it is not working)
+install.packages("randomForest", repos="http://cran.cnr.berkeley.edu")
+
+# # # Python - sort a list based on another list
+[x for (y,x) in sorted(zip(Y,X))]
+
+# # # Python - sort a list based on two other lists
+List1 = ['a', 'b', 'c', 'd', 'e']
+List2 = [4, 2, 3, 2, 4]
+List3 = [0.1, 0.8, 0.3, 0.6, 0.4]
+paired_sorted = sorted(zip(List2,List3,List1),key = lambda x: (x[0],x[1]))
+l2,l3,l1 = zip(*paired_sorted)
+# If descending required on one list?
+paired_sorted = sorted(zip(List2,List3,List1),key = lambda x: (x[0],- x[1]))
+l2,l3,l1 = zip(*paired_sorted)
