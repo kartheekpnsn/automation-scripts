@@ -1,0 +1,24 @@
+Title: Code logs generation
+
+Body:
+First we need to create a code-logs directory
+Then if body.txt doesn't exist we need to fill it with the basic template text
+Once the user fills out the body.txt with the original content then he can re-run the gen-logs.py code
+In the code it extracts title, body, files, to do from the body.txt file
+It also creates a timestamp using datetime library in python
+It sends all these as parameters to generate HTML file as logs
+In that html file the title is used as Heading and others as paragraph and list elements
+If the same work is done in different timestamp, the same file gets appended with the text.
+Once all the work is done, the user can run close-logs.py where all the HTML files will be converted to PDF and then the HTML files gets deleted
+
+Files:
+gen-logs.py
+close-logs.py
+
+Links:
+None
+
+To Do:
+try font weights in between body
+try font colors
+add url links used
