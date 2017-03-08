@@ -10,7 +10,7 @@ os.chdir("code-logs/")
 
 # # Generate HTML Page
 def genHTML(title, timestamp, body, files, urls, todo, filename):
-	body = "\n".join(["<p>" + i + "</p>" for i in body.splitlines()])
+	body = "\n".join(["<p> - " + i + "</p>" for i in body.splitlines()])
 	files = "\n".join(["<li>" + i + "</li>" for i in files])
 	urls = "\n".join(["<li>" + i + "</li>" for i in urls])
 	todo = "\n".join(["<li>" + i + "</li>" for i in todo])
