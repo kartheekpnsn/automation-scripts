@@ -10,7 +10,7 @@ os.chdir("code-logs/")
 
 # # Generate HTML Page
 def genHTML(title, timestamp, body, files, urls, todo, filename):
-	body = "..".join(body.splitlines())
+	body = "\n".join(["<p>" + i + "</p>" for i in body.splitlines()])
 	files = "\n".join(["<li>" + i + "</li>" for i in files])
 	urls = "\n".join(["<li>" + i + "</li>" for i in urls])
 	todo = "\n".join(["<li>" + i + "</li>" for i in todo])
@@ -80,11 +80,11 @@ if os.path.isfile('body.txt'):
 	f = open('body.txt', 'r')
 	text = f.read()
 	f.close()
-	title = text.split("\n\n")[0].split(":")[1].strip()
-	body = text.split("\n\n")[1].split(":")[1].strip()
-	files = text.split("\n\n")[2].split(":")[1].strip().splitlines()
-	urls = text.split("\n\n")[3].split(":")[1].strip().splitlines()
-	todo = text.split("\n\n")[4].split(":")[1].strip().splitlines()
+	title = ":".join([i.strip() for i in text.split("\n\n")[0].split(":")[1:]])
+	body = ":".join([i.strip() for i in text.split("\n\n")[1].split(":")[1:]])
+	files = ":".join([i.strip() for i in text.split("\n\n")[2].split(":")[1:]]).splitlines()
+	urls = ":".join([i.strip() for i in text.split("\n\n")[3].split(":")[1:]]).splitlines()
+	todo = ":".join([i.strip() for i in text.split("\n\n")[4].split(":")[1:]]).splitlines()
 	filename = "_".join(title.split()) + ".html"
 	genHTML(title = title, timestamp = date + " " + time.replace("_", ":"), body = body, files = files, urls = urls, todo = todo, filename = filename)
 else:
@@ -97,5 +97,4 @@ else:
 	f.close()
 	print "No body.txt file, Please fill something and come back"
 	sys.exit()
-
 
