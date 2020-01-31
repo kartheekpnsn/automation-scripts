@@ -30,5 +30,5 @@ all_imports = []
 for file in python_files:
 	all_imports.extend(get_imports(file))
 
-with open("all_imports_pcb.txt", "w") as fObj:
+with open("all_imports.txt", "w") as fObj:
 	fObj.write("\n".join(list(set(all_imports))))
